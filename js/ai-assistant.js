@@ -770,7 +770,7 @@ const AIAssistant = {
     // Append greeting message with interactive starter cards
     this.appendBotMessage(`
       <div class="ai-msg-text">
-        <strong>Γεια σου! Είμαι ο Δημήτρης, γεωπόνος και ιδιοκτήτης της DP Agron.</strong><br>
+        <strong>Γεια σου! Είμαι ο Δημήτρης, γεωπόνος της DP Agron.</strong><br>
         Πες μου για το χωράφι σου (πόσα δέντρα ή στρέμματα έχεις) ή τι εξοπλισμό ψάχνεις (ελαιοραβδιστικό, ψαλίδι κλαδέματος, δίχτυα 100gr, γεννήτρια ή τιμολόγιο με άρθρο 39α χωρίς ΦΠΑ) και θα σου βρω ακριβώς τη λύση που σε συμφέρει.
       </div>
       <div class="ai-welcome-grid">
