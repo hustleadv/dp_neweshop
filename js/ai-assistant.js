@@ -101,6 +101,17 @@ const AIAssistant = {
       }
     }
 
+    // 2b. Qualitative grove size if no numbers were given
+    if (!this.activeSession.treesCount && !this.activeSession.acresCount) {
+      if (/(?:λιγ[αες]*\s*(?:δεντρ|δενδρ|ελι|ριζ)|μικρ[οα]*\s*(?:ελαιων|κτημα|λιοστασ|χωραφ)|ερασιτεχν|για\s+το\s+σπιτι)/i.test(norm)) {
+        this.activeSession.treesCount = 40;
+        this.activeSession.acresCount = 2;
+      } else if (/(?:πολλ[αες]*\s*(?:δεντρ|δενδρ|ελι|ριζ)|μεγαλ[οα]*\s*(?:ελαιων|κτημα|λιοστασ|χωραφ)|επαγγελματι[α-ω]*\s*ελαι)/i.test(norm)) {
+        this.activeSession.treesCount = 350;
+        this.activeSession.acresCount = 14;
+      }
+    }
+
     // 3. Extract workers count (e.g. "5 εργατες", "ειμαστε 4 ατομα", "συνεργειο 3", "εχω 5 εργατες", "για 5 εργατες", "5 χειριστες")
     const workerMatch = norm.match(/(\d+)\s*(?:εργατ|χειριστ|ατομ|παιδι|βοηθ)/i) ||
                         norm.match(/(?:ειμαστε|εχω|συνεργειο)\s*(\d+)\s*(?:εργατ|χειριστ|ατομ|παιδι|βοηθ)?/i) ||
@@ -646,8 +657,10 @@ const AIAssistant = {
         this.activeSession.treesCount = trees;
         this.activeSession.acresCount = Math.max(1, Math.round(trees / 25));
         html = introBlock + this.buildAcreageResponse(this.normalizeGreek(`${trees} δέντρα`), `${trees} δέντρα`);
-      } else {
+      } else if (this.activeSession.treesCount || this.activeSession.acresCount) {
         html = introBlock + this.buildAcreageResponse(norm, cleaned);
+      } else {
+        html = introBlock + this.buildGroveClarificationResponse();
       }
       this.activeSession.lastIntent = "acreage";
     } else if (action.type === "calendar") {
@@ -1507,6 +1520,34 @@ const AIAssistant = {
     `;
   },
 
+  /* --------------------------------------------------------------------------
+     Helper: Clarifying Question when grove size is unknown
+     -------------------------------------------------------------------------- */
+  buildGroveClarificationResponse() {
+    return `
+      <div class="ai-msg-text">
+        <svg class="ico" aria-hidden="true"><use href="#i-tree"></use></svg> <strong>Με το καλό να ξεκινήσετε τη φετινή συγκομιδή!</strong><br>
+        Ως γεωπόνος, δεν θέλω να σας προτείνω στην τύχη μηχανήματα ούτε να κάνετε περιττά έξοδα. Για να υπολογίσουμε ακριβώς τι χρειάζεστε για άνετο, γρήγορο και ξεκούραστο λιομάζωμα:
+        <ul style="margin: 8px 0 0 18px; padding: 0; line-height: 1.6;">
+          <li><strong>Πόσα δέντρα</strong> ή πόσα <strong>στρέμματα</strong> υπολογίζετε να μαζέψετε φέτος;</li>
+          <li><strong>Έχετε ήδη κάποια πηγή ρεύματος</strong> (π.χ. γεννήτρια 12V ή μπαταρία), ή ξεκινάτε από το μηδέν;</li>
+        </ul>
+      </div>
+
+      <div class="ai-followup-box">
+        <div class="ai-followup-question"><svg class="ico" aria-hidden="true"><use href="#i-target"></use></svg> Επιλέξτε μέγεθος ελαιώνα ή υφιστάμενο εξοπλισμό:</div>
+        <div class="ai-followup-actions">
+          <button type="button" class="ai-followup-pill" onclick="AIAssistant.handleAdvisorRefine(null, 'Έχω έως 50 δέντρα')"><svg class="ico" aria-hidden="true"><use href="#i-tree"></use></svg> Έως 50 δέντρα (~2 στρ.)</button>
+          <button type="button" class="ai-followup-pill" onclick="AIAssistant.handleAdvisorRefine(null, 'Έχω 100 δέντρα')"><svg class="ico" aria-hidden="true"><use href="#i-tree"></use></svg> 100 δέντρα (~4 στρ.)</button>
+          <button type="button" class="ai-followup-pill" onclick="AIAssistant.handleAdvisorRefine(null, 'Έχω 200 δέντρα')"><svg class="ico" aria-hidden="true"><use href="#i-tree"></use></svg> 200 δέντρα (~8 στρ.)</button>
+          <button type="button" class="ai-followup-pill" onclick="AIAssistant.handleAdvisorRefine(null, 'Έχω 400+ δέντρα')"><svg class="ico" aria-hidden="true"><use href="#i-tree"></use></svg> 400+ δέντρα (επαγγελματίας)</button>
+          <button type="button" class="ai-followup-pill" onclick="AIAssistant.handleFollowUpClick('Έχω ήδη δική μου γεννήτρια', 'has_generator')"><svg class="ico" aria-hidden="true"><use href="#i-settings"></use></svg> Έχω ήδη γεννήτρια</button>
+          <button type="button" class="ai-followup-pill" onclick="AIAssistant.handleFollowUpClick('Έχω ήδη δική μου μπαταρία 12V', 'has_battery')"><svg class="ico" aria-hidden="true"><use href="#i-battery"></use></svg> Έχω μπαταρία 12V</button>
+        </div>
+      </div>
+    `;
+  },
+
   // INTENT 6: ACREAGE & FULL HARVEST PACKAGE
   buildAcreageResponse(norm, rawQuery) {
     const hasTrees = /δεντρ|δενδρ|ριζ|\d+\s*ελι|\d+\s*ελαι/i.test(norm);
@@ -1537,10 +1578,20 @@ const AIAssistant = {
         acresCount = Math.max(1, Math.round(num / 25));
         titleContext = `για ${treesCount} Δέντρα (~${acresCount} Στρέμματα)`;
       }
-    } else {
-      treesCount = this.activeSession.treesCount || 100;
-      acresCount = this.activeSession.acresCount || 4;
+      this.activeSession.treesCount = treesCount;
+      this.activeSession.acresCount = acresCount;
+    } else if (this.activeSession.treesCount) {
+      treesCount = this.activeSession.treesCount;
+      acresCount = this.activeSession.acresCount || Math.max(1, Math.round(treesCount / 25));
       titleContext = `για ${treesCount} Δέντρα (~${acresCount} Στρέμματα)`;
+    } else if (this.activeSession.acresCount) {
+      acresCount = this.activeSession.acresCount;
+      treesCount = acresCount * 25;
+      this.activeSession.treesCount = treesCount;
+      titleContext = `για ${acresCount} Στρέμματα (~${treesCount} Δέντρα)`;
+    } else {
+      // User has not stated grove size yet — ask a clarifying question!
+      return this.buildGroveClarificationResponse();
     }
 
     const harv = DPAgronData.products.find(p => p.id === "prod-vortex-pro") || DPAgronData.products[0];
