@@ -9,9 +9,7 @@
     "test:advisor": "node scripts/test-advisor.js",
     "build": "vite build",
     "preview": "vite preview",
-    "start": "vite",
-    "next:dev": "npm --prefix frontend run dev",
-    "next:build": "npm --prefix frontend run build"
+    "start": "vite"
   },
   "devDependencies": {
     "vite": "^6.2.0"
