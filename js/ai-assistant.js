@@ -184,6 +184,13 @@ const AIAssistant = {
       { pattern: "μακιτα|μακίτα", replacement: "Makita" },
       { pattern: "λιζαμ|λισαμ", replacement: "Lisam" },
 
+      // Common mishearings: "έλλο" -> "άλλο", "μυστικά" -> "ραβδιστικά"
+      { pattern: "έλλο|ελλο", replacement: "άλλο" },
+      { pattern: "μυστικ[α-ω]*\\s*(?:να\\s+)?(?:αγορασω|παρω|βρω|προτεινεισ)", replacement: "ελαιοραβδιστικά να αγοράσω" },
+      { pattern: "(?:εξοπλισμ[ο-ω]*|εργαλει[α-ω]*|μηχανημ[α-ω]*)\\s*μυστικ[α-ω]*", replacement: "ελαιοραβδιστικά" },
+      { pattern: "(\\d+)\\s*χρονων\\s+αγροτης", replacement: "αγρότης με $1 δέντρα" },
+      { pattern: "(\\d+)\\s*χρονων\\s*(?:ελιες|δεντρα|δενδρα)", replacement: "$1 δέντρα" },
+
       // Split compound agricultural terms
       { pattern: "ελαιο\\s+ραβδιστικ[οαουωνες]+", replacement: "ελαιοραβδιστικό" },
       { pattern: "ελαιο\\s+ραβδι[αων]*", replacement: "ελαιοραβδιστικό" },
@@ -447,7 +454,7 @@ const AIAssistant = {
     if (advInput) advInput.setAttribute("placeholder", "Ρωτήστε κάτι συμπληρωματικό (π.χ. «θέλω και ψαλίδι», «πόσα δίχτυα χρειάζομαι;»)...");
   },
 
-  commitVoiceSpeech() {
+  commitVoiceSpeech(autoSubmit = false) {
     const raw = (this.speechBuffer || "").trim();
     this.speechBuffer = ""; // consume buffer so onend / late events can't commit it again
     this.stopListening();
@@ -459,15 +466,34 @@ const AIAssistant = {
 
     const inputId = this.activeMicTarget === "advisor" ? "advisor-refine-input" : "ai-home-input";
     const inputEl = document.getElementById(inputId);
-    if (inputEl) inputEl.value = corrected;
+    if (inputEl) {
+      inputEl.value = corrected;
+      inputEl.focus();
+      try {
+        inputEl.setSelectionRange(corrected.length, corrected.length);
+      } catch (e) {}
 
-    App.showToast(`Αναγνωρίστηκε: «${corrected}»`, "success");
+      inputEl.classList.add("ai-input-editing-highlight");
+      setTimeout(() => inputEl.classList.remove("ai-input-editing-highlight"), 1800);
 
-    // Dispatch query to AI engine
-    if (this.activeMicTarget === "advisor") {
-      this.handleAdvisorRefine(null, corrected);
+      if (this.activeMicTarget === "advisor") {
+        const bottomDock = document.querySelector(".advisor-bottom-dock");
+        if (bottomDock) {
+          bottomDock.scrollIntoView({ behavior: "smooth", block: "end" });
+        }
+      }
+    }
+
+    if (autoSubmit) {
+      App.showToast(`Αναγνωρίστηκε: «${corrected}»`, "success");
+      // Dispatch query to AI engine
+      if (this.activeMicTarget === "advisor") {
+        this.handleAdvisorRefine(null, corrected);
+      } else {
+        this.handleUserSubmit(null, corrected);
+      }
     } else {
-      this.handleUserSubmit(null, corrected);
+      App.showToast("Καταγράφηκε! Ελέγξτε ή διορθώστε το κείμενο και πατήστε Αποστολή (➔)", "info");
     }
   },
 
@@ -777,15 +803,45 @@ const AIAssistant = {
     userRow.className = "ai-msg-row user";
     userRow.innerHTML = `
       <div class="ai-user-bubble">
-        <div class="ai-user-label">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-          <span>Εσείς</span>
+        <div class="ai-user-header">
+          <div class="ai-user-label">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span>Εσείς</span>
+          </div>
+          <button type="button" class="ai-user-edit-btn" onclick="AIAssistant.editUserMessage(this)" title="Διόρθωση αυτής της ερώτησης">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+            <span>Διόρθωση</span>
+          </button>
         </div>
         <div class="ai-user-text">${this.escapeHTML(text)}</div>
       </div>
     `;
     thread.appendChild(userRow);
     this.scrollToBottom();
+  },
+
+  editUserMessage(btn) {
+    const bubble = btn.closest(".ai-user-bubble");
+    if (!bubble) return;
+    const textEl = bubble.querySelector(".ai-user-text");
+    const text = textEl ? textEl.textContent.trim() : "";
+    if (!text) return;
+
+    const input = document.getElementById("advisor-refine-input");
+    if (input) {
+      input.value = text;
+      input.focus();
+      input.setSelectionRange(text.length, text.length);
+      input.classList.add("ai-input-editing-highlight");
+      setTimeout(() => input.classList.remove("ai-input-editing-highlight"), 1400);
+
+      App.showToast("Το κείμενο φορτώθηκε στο πεδίο. Κάντε τις διορθώσεις σας και πατήστε Αποστολή (➔)", "info");
+
+      const bottomDock = document.querySelector(".advisor-bottom-dock");
+      if (bottomDock) {
+        bottomDock.scrollIntoView({ behavior: "smooth", block: "end" });
+      }
+    }
   },
 
   showTypingIndicator() {
