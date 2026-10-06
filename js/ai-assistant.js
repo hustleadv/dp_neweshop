@@ -731,8 +731,8 @@ const AIAssistant = {
     // Append greeting message with interactive starter cards
     this.appendBotMessage(`
       <div class="ai-msg-text">
-        <strong>Γεια σας! Είμαι ο Γεωπονικός Σύμβουλος της DP Agron.</strong><br>
-        Πείτε μου για το χωράφι σας (πόσα στρέμματα ή δέντρα έχετε) ή τι εξοπλισμό αναζητάτε (ελαιοραβδιστικό, ψαλίδι κλαδέματος, δίχτυα 100gr, γεννήτρια ή τιμολόγιο με απαλλαγή ΦΠΑ άρθρο 39α).
+        <strong>Γεια σου! Είμαι ο Δημήτρης, γεωπόνος και ιδιοκτήτης της DP Agron.</strong><br>
+        Πες μου για το χωράφι σου (πόσα δέντρα ή στρέμματα έχεις) ή τι εξοπλισμό ψάχνεις (ελαιοραβδιστικό, ψαλίδι κλαδέματος, δίχτυα 100gr, γεννήτρια ή τιμολόγιο με άρθρο 39α χωρίς ΦΠΑ) και θα σου βρω ακριβώς τη λύση που σε συμφέρει.
       </div>
       <div class="ai-welcome-grid">
         <div class="ai-welcome-card" onclick="AIAssistant.handleAdvisorRefine(null, 'Θέλω πακέτο εξοπλισμού για 400 δέντρα')">
@@ -2048,7 +2048,7 @@ const AIAssistant = {
           <span class="ai-pulse-dot"></span>
         </div>
         <div class="ai-msg-header-text">
-          <div class="ai-msg-bot-title">DP Agron Γεωπονικός Σύμβουλος</div>
+          <div class="ai-msg-bot-title">Δημήτρης &bull; DP Agron</div>
           <div class="ai-msg-bot-badge">${badgeText}</div>
         </div>
       </div>
