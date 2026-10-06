@@ -428,7 +428,7 @@ const App = {
       }
     };
 
-    // 1. Left Column: Categories List & Balanced Footer
+    // 1. Left Column: Categories List
     categoriesContainer.innerHTML = `
       <div class="category-megamenu-cat-list">
         ${categories.map((cat, idx) => `
@@ -442,13 +442,6 @@ const App = {
             <svg class="category-megamenu-cat-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"></polyline></svg>
           </button>
         `).join("")}
-      </div>
-      <div class="category-megamenu-left-footer">
-        <div class="left-footer-brand">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
-          <span>DP AGRON HUB</span>
-        </div>
-        <div class="left-footer-sub">100% Εξειδίκευση στην Ελιά</div>
       </div>
     `;
 
