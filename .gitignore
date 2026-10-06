@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Production builds
+dist/
+.next/
+**/.next/
+
+# Environment files & secrets
+.env
+.env.*
+*.local
+!.env.example
+
+# Temporary / scratch
+scratch/
+.tempmediaStorage/
+*.log
+
+# Deployments / IDE
+.vercel/
+.DS_Store
+Thumbs.db

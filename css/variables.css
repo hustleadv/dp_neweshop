@@ -1,0 +1,229 @@
+/* ==========================================================================
+   DP AGRON — DESIGN SYSTEM «Ελαιώνας την Αυγή»
+   Every colour derives from the hero photograph: olive leaves, sunrise gold,
+   stone & soil, morning mist. ONE accent (gold), ONE brand colour (olive).
+   Rule: no hex values outside this file. Use the semantic tokens below.
+   Each swatch also exposes "-rgb" channels for alpha: rgb(var(--gold-400-rgb) / 0.4)
+   ========================================================================== */
+
+:root {
+  /* Neutrals — warm stone (light) and olive-tinted ink (dark) */
+  --white: #ffffff;
+  --white-rgb: 255 255 255;
+  --stone-25: #fbfaf7;
+  --stone-25-rgb: 251 250 247;
+  --stone-50: #f6f4ef;
+  --stone-50-rgb: 246 244 239;
+  --stone-100: #eeebe4;
+  --stone-100-rgb: 238 235 228;
+  --stone-200: #e1ddd3;
+  --stone-200-rgb: 225 221 211;
+  --stone-300: #ccc6b9;
+  --stone-300-rgb: 204 198 185;
+  --stone-400: #a7a093;
+  --stone-400-rgb: 167 160 147;
+  --stone-500: #767065;
+  --stone-500-rgb: 118 112 101;
+  --stone-600: #5b564d;
+  --stone-600-rgb: 91 86 77;
+  --stone-700: #3f3b34;
+  --stone-700-rgb: 63 59 52;
+  --ink-600: #343830;
+  --ink-600-rgb: 52 56 48;
+  --ink-700: #262a23;
+  --ink-700-rgb: 38 42 35;
+  --ink-800: #1c1f1a;
+  --ink-800-rgb: 28 31 26;
+  --ink-900: #141713;
+  --ink-900-rgb: 20 23 19;
+  --ink-950: #0d0f0c;
+  --ink-950-rgb: 13 15 12;
+
+  /* Greens — deep olive (brand), olive leaf (bright brand), success */
+  --olive-50: #eef3ec;
+  --olive-50-rgb: 238 243 236;
+  --olive-100: #dfe8da;
+  --olive-100-rgb: 223 232 218;
+  --olive-200: #c3d3bc;
+  --olive-200-rgb: 195 211 188;
+  --olive-300: #9bb293;
+  --olive-300-rgb: 155 178 147;
+  --olive-400: #6f8c6b;
+  --olive-400-rgb: 111 140 107;
+  --olive-500: #4e6d52;
+  --olive-500-rgb: 78 109 82;
+  --olive-600: #36573f;
+  --olive-600-rgb: 54 87 63;
+  --olive-700: #254a34;
+  --olive-700-rgb: 37 74 52;
+  --olive-800: #1d3f2c;
+  --olive-800-rgb: 29 63 44;
+  --olive-900: #183524;
+  --olive-900-rgb: 24 53 36;
+  --olive-950: #102619;
+  --olive-950-rgb: 16 38 25;
+  --leaf-200: #dbe7bf;
+  --leaf-200-rgb: 219 231 191;
+  --leaf-300: #c4d896;
+  --leaf-300-rgb: 196 216 150;
+  --leaf-400: #a9c46c;
+  --leaf-400-rgb: 169 196 108;
+  --leaf-500: #8faa52;
+  --leaf-500-rgb: 143 170 82;
+  --leaf-600: #73893f;
+  --leaf-600-rgb: 115 137 63;
+  --success-50: #e6f0e3;
+  --success-50-rgb: 230 240 227;
+  --success-500: #3f7d4e;
+  --success-500-rgb: 63 125 78;
+  --success-600: #2f6640;
+  --success-600-rgb: 47 102 64;
+
+  /* Gold — sunrise harvest gold (the single accent) */
+  --gold-50: #fbf6ea;
+  --gold-50-rgb: 251 246 234;
+  --gold-100: #f6e9c9;
+  --gold-100-rgb: 246 233 201;
+  --gold-200: #f0d49a;
+  --gold-200-rgb: 240 212 154;
+  --gold-400: #e9bf72;
+  --gold-400-rgb: 233 191 114;
+  --gold-500: #d9a556;
+  --gold-500-rgb: 217 165 86;
+  --gold-600: #b9853a;
+  --gold-600-rgb: 185 133 58;
+  --gold-700: #9a6a24;
+  --gold-700-rgb: 154 106 36;
+  --gold-800: #6f4b18;
+  --gold-800-rgb: 111 75 24;
+
+  /* Danger — terracotta */
+  --danger-50: #f9ece8;
+  --danger-50-rgb: 249 236 232;
+  --danger-100: #f1d3ca;
+  --danger-100-rgb: 241 211 202;
+  --danger-400: #d0694f;
+  --danger-400-rgb: 208 105 79;
+  --danger-500: #b4442f;
+  --danger-500-rgb: 180 68 47;
+  --danger-600: #963523;
+  --danger-600-rgb: 150 53 35;
+  --danger-700: #752818;
+  --danger-700-rgb: 117 40 24;
+
+  /* Petrol — muted info / B2B */
+  --petrol-50: #ebf1f3;
+  --petrol-50-rgb: 235 241 243;
+  --petrol-100: #d4e1e6;
+  --petrol-100-rgb: 212 225 230;
+  --petrol-300: #8fabb7;
+  --petrol-300-rgb: 143 171 183;
+  --petrol-500: #3f6676;
+  --petrol-500-rgb: 63 102 118;
+  --petrol-700: #2c4a57;
+  --petrol-700-rgb: 44 74 87;
+  --petrol-900: #1b2f38;
+  --petrol-900-rgb: 27 47 56;
+
+  /* ---------- Semantic tokens (use these in components) ---------- */
+  --brand: var(--olive-900);
+  --brand-leaf: var(--leaf-400);           /* bright brand signal: logo, active nav, in-stock */
+  --accent: var(--gold-500);               /* CTA backgrounds (pair with --on-accent text) */
+  --accent-hover: var(--gold-400);
+  --accent-on-dark: var(--gold-400);       /* accent text/icons on dark surfaces */
+  --accent-text: var(--gold-700);          /* accent text on light surfaces (WCAG AA) */
+  --on-accent: var(--ink-950);             /* text on gold */
+
+  --text-strong: var(--ink-900);
+  --text: var(--ink-600);
+  --text-muted: var(--stone-600);
+  --text-subtle: var(--stone-500);
+  --text-on-dark: var(--stone-50);
+  --text-on-dark-muted: rgb(var(--stone-100-rgb) / 0.72);
+
+  --surface: var(--white);
+  --surface-sunken: var(--stone-50);
+  --surface-dark: var(--ink-900);
+  --surface-dark-raised: var(--ink-800);
+  --glass-dark: rgb(var(--ink-900-rgb) / 0.78);
+  --line: var(--stone-200);
+  --line-soft: var(--stone-100);
+  --line-on-dark: rgb(var(--stone-100-rgb) / 0.14);
+
+  --focus-ring: 0 0 0 3px rgb(var(--gold-400-rgb) / 0.45);
+
+  /* ---------- Legacy aliases (kept so existing selectors keep working) ---------- */
+  --color-primary: var(--olive-900);
+  --color-primary-hover: var(--olive-950);
+  --color-primary-light: var(--olive-700);
+  --color-primary-tint: var(--olive-50);
+  --color-primary-glow: rgb(var(--olive-900-rgb) / 0.15);
+
+  --color-accent: var(--gold-700);        /* AA text on light; filled CTAs use --accent */
+  --color-accent-hover: var(--gold-800);
+  --color-accent-tint: var(--gold-50);
+  --color-accent-glow: rgb(var(--gold-600-rgb) / 0.22);
+
+  --color-dark: var(--ink-900);
+  --color-dark-muted: var(--ink-700);
+  --color-body-text: var(--ink-600);
+  --color-muted: var(--stone-600);
+  --color-border: var(--stone-200);
+  --color-border-light: var(--stone-100);
+
+  --color-bg: var(--stone-50);
+  --color-surface: var(--white);
+  --color-surface-hover: var(--stone-25);
+  --color-surface-glass: rgb(var(--white-rgb) / 0.92);
+
+  --color-success: var(--success-500);
+  --color-success-bg: var(--success-50);
+  --color-danger: var(--danger-500);
+  --color-danger-bg: var(--danger-50);
+  --color-warning: var(--gold-600);
+  --color-b2b: var(--petrol-700);
+  --color-b2b-bg: var(--petrol-50);
+
+  /* Typography */
+  --font-heading: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Spacing */
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 96px;
+
+  /* Border Radii */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 26px;
+  --radius-full: 9999px;
+
+  /* Shadows — warm ink, layered & subtle */
+  --shadow-xs: 0 1px 3px rgb(var(--ink-900-rgb) / 0.04);
+  --shadow-sm: 0 2px 8px rgb(var(--ink-900-rgb) / 0.06);
+  --shadow-md: 0 8px 24px rgb(var(--ink-900-rgb) / 0.07);
+  --shadow-lg: 0 16px 36px rgb(var(--ink-900-rgb) / 0.1);
+  --shadow-xl: 0 24px 56px rgb(var(--ink-900-rgb) / 0.14);
+  --shadow-product: 0 4px 20px rgb(var(--ink-900-rgb) / 0.05);
+  --shadow-product-hover: 0 16px 36px rgb(var(--olive-900-rgb) / 0.12);
+
+  /* Layout */
+  --container-max: 1640px;
+  --header-height: 88px;
+  --topbar-height: 38px;
+
+  /* Transitions */
+  --transition-fast: 0.16s ease;
+  --transition-normal: 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}

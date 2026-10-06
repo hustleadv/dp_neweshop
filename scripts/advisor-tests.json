@@ -1,0 +1,23 @@
+[
+  { "q": "Ωραία εγώ θέλω να μαζέψω 10 ελιές τέλος του μήνα τι πρέπει να πάρω", "expect": { "action": "bundle" } },
+  { "q": "έχω 400 δέντρα τι εξοπλισμό χρειάζομαι", "expect": { "action": "bundle", "trees": 400 } },
+  { "q": "έχω 8 στρέμματα με ελιές, τι να πάρω για το μάζεμα", "expect": { "action": "bundle" } },
+  { "q": "Τώρα είναι περίοδος για να βάλω λίπασμα στις ελιές ή ακόμα", "expect": { "action": "calendar", "topic": "fertilize" } },
+  { "q": "πότε ψεκάζω για δάκο", "expect": { "action": "calendar", "topic": "spraying" } },
+  { "q": "πότε κλαδεύω τις ελιές", "expect": { "action": "calendar", "topic": "pruning" } },
+  { "q": "πότε είναι η καλύτερη περίοδος για ελαιοσυλλογή", "expect": { "action": "calendar", "topic": "harvest" } },
+  { "q": "πότε φυτεύω καινούργια δέντρα", "expect": { "action": "calendar", "topic": "planting" } },
+  { "q": "θέλω τιμολόγιο χωρίς ΦΠΑ με το 39α", "expect": { "action": "b2b" } },
+  { "q": "είμαι κατ' επάγγελμα αγρότης, μπορώ να πάρω χωρίς ΦΠΑ;", "expect": { "action": "b2b" } },
+  { "q": "Θέλω να πάρω καινούργια ραβδιστικά τι μου προτείνεις", "expect": { "action": "none", "minProducts": 1 } },
+  { "q": "ποια η διαφορά αχινού και χτένας", "expect": { "action": "none", "minProducts": 1 } },
+  { "q": "θέλω ψαλίδι κλαδέματος μπαταρίας για χοντρά κλαδιά", "expect": { "action": "none", "minProducts": 1 } },
+  { "q": "χρειάζομαι ένα μικρό αλυσοπρίονο για κλάδεμα", "expect": { "action": "none", "minProducts": 1 } },
+  { "q": "ποια γεννήτρια σηκώνει 2 ραβδιστικά μαζί", "expect": { "action": "none", "minProducts": 1 } },
+  { "q": "πόσα δίχτυα χρειάζομαι για 60 δέντρα", "expect": { "anyAction": ["none", "bundle"] } },
+  { "q": "έχω ήδη γεννήτρια, τι άλλο χρειάζομαι για 200 δέντρα", "expect": { "action": "bundle", "trees": 200 } },
+  { "q": "θέλω κάτι ελαφρύ γιατί πονάει η μέση μου", "expect": { "action": "none", "minProducts": 1 } },
+  { "q": "θέλω ελαιοραβδιστικό", "expect": { "anyAction": ["none"] } },
+  { "q": "τι καιρό θα κάνει αύριο στην Αθήνα", "expect": { "action": "none", "maxProducts": 0 } },
+  { "q": "Γράψε μου ένα ποίημα", "expect": { "action": "none", "maxProducts": 0 } }
+]

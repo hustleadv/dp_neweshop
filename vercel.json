@@ -1,0 +1,19 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "echo \"No install needed\"",
+  "buildCommand": "echo \"Static site - no build step\"",
+  "outputDirectory": ".",
+  "functions": {
+    "api/advisor.js": {
+      "includeFiles": "js/data.js",
+      "maxDuration": 20
+    }
+  },
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex" }]
+    }
+  ]
+}
