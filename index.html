@@ -429,12 +429,16 @@
           
           <!-- Hero Header -->
           <div class="ai-hero-header">
+            <div class="advisor-status-pill" style="margin: 0 auto 16px; display: inline-flex;">
+              <span class="advisor-status-dot"></span>
+              <span><strong>Δημήτρης</strong> &bull; Γεωπόνος &amp; Ιδιοκτήτης DP Agron</span>
+            </div>
             <h1 class="ai-hero-title">
               Πες μου τι χρειάζεσαι<br>
               για το <span>χωράφι σου</span>
             </h1>
             <p class="ai-hero-subtitle">
-              Ο Δημήτρης (Γεωπόνος & Ιδιοκτήτης της DP Agron) υπολογίζει τον ιδανικό εξοπλισμό για τη σοδειά σου.
+              Ο <strong>Δημήτρης</strong> (Γεωπόνος &amp; Ιδιοκτήτης DP Agron) υπολογίζει τον ιδανικό εξοπλισμό για τη σοδειά σου.
             </p>
           </div>
 
@@ -444,7 +448,7 @@
               <div class="ai-search-icon-left">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
               </div>
-              <input type="text" id="ai-home-input" class="ai-search-input" autocomplete="off" placeholder="π.χ. Θέλω να μαζέψω ελιές από 3 στρέμματα..." aria-label="Αναζήτηση Γεωπονικού Συμβούλου">
+              <input type="text" id="ai-home-input" class="ai-search-input" autocomplete="off" placeholder="Ρωτήστε τον Δημήτρη (π.χ. «έχω 150 δέντρα», «τι ραβδιστικό να πάρω;»)..." aria-label="Ρωτήστε τον Δημήτρη">
               <div class="ai-search-actions">
                 <button type="button" id="ai-mic-btn" class="ai-mic-btn" title="Φωνητική Αναζήτηση" onclick="AIAssistant.toggleVoiceSearch()" aria-label="Φωνητική εντολή">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
@@ -502,7 +506,7 @@
 
             <div class="advisor-status-pill">
               <span class="advisor-status-dot"></span>
-              <span>Δημήτρης | Γεωπόνος DP Agron &bull; 21 Προϊόντα Σεζόν '26</span>
+              <span><strong>Δημήτρης</strong> &bull; Γεωπόνος DP Agron &bull; 21 Προϊόντα Σεζόν '26</span>
             </div>
 
             <button type="button" class="advisor-reset-btn" onclick="AIAssistant.resetChat()" title="Νέα Συνομιλία">
@@ -522,7 +526,7 @@
               <div class="advisor-refine-icon">
                 <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
               </div>
-              <input type="text" id="advisor-refine-input" class="advisor-refine-input" placeholder="Γράψτε ή μιλήστε (π.χ. «έχω 400 δέντρα», «ψάχνω ραβδιστικό carbon»)..." autocomplete="off" aria-label="Ερώτηση προς τον σύμβουλο">
+              <input type="text" id="advisor-refine-input" class="advisor-refine-input" placeholder="Ρωτήστε τον Δημήτρη (π.χ. «έχω 400 δέντρα», «ψάχνω ραβδιστικό carbon»)..." autocomplete="off" aria-label="Ερώτηση προς τον Δημήτρη">
               <div class="advisor-refine-actions">
                 <button type="button" id="advisor-mic-btn" class="advisor-mic-btn" title="Φωνητική Εντολή" onclick="AIAssistant.toggleAdvisorVoice()" aria-label="Φωνητική εντολή">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
@@ -2170,7 +2174,7 @@
   <!-- JAVASCRIPT FILES -->
   <script src="js/data.js?v=clean_v5"></script>
   <script src="js/store.js?v=clean_v4"></script>
-  <script src="js/ai-assistant.js?v=ds13"></script>
+  <script src="js/ai-assistant.js?v=ds14"></script>
   <script src="js/app.js?v=ds1"></script>
 </body>
 </html>

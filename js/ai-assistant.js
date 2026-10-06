@@ -764,7 +764,7 @@ const AIAssistant = {
     const refineInput = document.getElementById("advisor-refine-input");
     if (refineInput) {
       refineInput.value = "";
-      refineInput.placeholder = "Γράψτε ή μιλήστε (π.χ. «έχω 400 δέντρα», «ψάχνω ραβδιστικό carbon»)...";
+      refineInput.placeholder = "Ρωτήστε τον Δημήτρη (π.χ. «έχω 400 δέντρα», «ψάχνω ραβδιστικό carbon»)...";
     }
 
     // Append greeting message with interactive starter cards
@@ -868,11 +868,14 @@ const AIAssistant = {
       <div class="ai-msg-header" style="margin-bottom: 0; padding-bottom: 0; border-bottom: none;">
         <div class="ai-msg-avatar-wrap">
           <div class="ai-msg-avatar">
-            <img src="assets/images/advisor_avatar.jpg" alt="Γεωπόνος Σύμβουλος DP Agron" class="ai-avatar-photo">
+            <img src="assets/images/advisor_avatar.jpg" alt="Δημήτρης - Γεωπόνος DP Agron" class="ai-avatar-photo">
           </div>
           <span class="ai-pulse-dot"></span>
         </div>
-        <div class="ai-typing-indicator">
+        <div class="ai-msg-header-text">
+          <div class="ai-msg-bot-title">Ο Δημήτρης υπολογίζει...</div>
+        </div>
+        <div class="ai-typing-indicator" style="margin-left: 8px;">
           <span class="ai-typing-dot"></span>
           <span class="ai-typing-dot"></span>
           <span class="ai-typing-dot"></span>
@@ -1527,7 +1530,7 @@ const AIAssistant = {
     return `
       <div class="ai-msg-text">
         <svg class="ico" aria-hidden="true"><use href="#i-tree"></use></svg> <strong>Με το καλό να ξεκινήσετε τη φετινή συγκομιδή!</strong><br>
-        Ως γεωπόνος, δεν θέλω να σας προτείνω στην τύχη μηχανήματα ούτε να κάνετε περιττά έξοδα. Για να υπολογίσουμε ακριβώς τι χρειάζεστε για άνετο, γρήγορο και ξεκούραστο λιομάζωμα:
+        Είμαι ο <strong>Δημήτρης</strong> και ως γεωπόνος δεν θέλω να σας προτείνω στην τύχη μηχανήματα ούτε να κάνετε περιττά έξοδα. Για να υπολογίσουμε ακριβώς τι χρειάζεστε για άνετο, γρήγορο και ξεκούραστο λιομάζωμα:
         <ul style="margin: 8px 0 0 18px; padding: 0; line-height: 1.6;">
           <li><strong>Πόσα δέντρα</strong> ή πόσα <strong>στρέμματα</strong> υπολογίζετε να μαζέψετε φέτος;</li>
           <li><strong>Έχετε ήδη κάποια πηγή ρεύματος</strong> (π.χ. γεννήτρια 12V ή μπαταρία), ή ξεκινάτε από το μηδέν;</li>
@@ -2150,12 +2153,12 @@ const AIAssistant = {
       <div class="ai-msg-header">
         <div class="ai-msg-avatar-wrap">
           <div class="ai-msg-avatar">
-            <img src="assets/images/advisor_avatar.jpg" alt="Γεωπόνος Σύμβουλος DP Agron" class="ai-avatar-photo">
+            <img src="assets/images/advisor_avatar.jpg" alt="Δημήτρης - Γεωπόνος DP Agron" class="ai-avatar-photo">
           </div>
           <span class="ai-pulse-dot"></span>
         </div>
         <div class="ai-msg-header-text">
-          <div class="ai-msg-bot-title">Δημήτρης &bull; DP Agron</div>
+          <div class="ai-msg-bot-title">Δημήτρης &bull; Γεωπόνος DP Agron</div>
           <div class="ai-msg-bot-badge">${badgeText}</div>
         </div>
       </div>
