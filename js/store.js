@@ -155,12 +155,12 @@ class DPStore {
 
     // Category
     if (this.filters.category && this.filters.category !== "all") {
-      list = list.filter(p => p.category === this.filters.category);
+      list = list.filter(p => p.category === this.filters.category || p.subcategory === this.filters.category);
     }
 
     // Subcategory
     if (this.filters.subcategory && this.filters.subcategory !== "all") {
-      list = list.filter(p => p.subcategory === this.filters.subcategory);
+      list = list.filter(p => p.subcategory === this.filters.subcategory || p.category === this.filters.subcategory);
     }
 
     // Brands

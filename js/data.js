@@ -1,273 +1,466 @@
 /* ==========================================================================
-   DP AGRON - DATA STORE & CATALOG (LIVE MERGED: WOOCOMMERCE + FULL CATALOG)
-   Products: 21 | Categories: 4
+   DP AGRON - DATA STORE & CATALOG (LIVE MERGED: WOOCOMMERCE CATEGORIES & CATALOG)
+   Updated: 2026-10-06T13:04:17.568Z
+   Products: 21 | Categories: 5
    ========================================================================== */
 
 const DPAgronData = {
   "categories": [
     {
-      "id": "olive-harvest",
+      "id": "elaiokomia-kai-sigkomidi",
+      "wcId": 47,
       "name": "Ελαιοκομία & Συγκομιδή",
-      "slug": "olive-harvest",
-      "count": 58,
+      "slug": "elaiokomia-kai-sigkomidi",
+      "count": 6,
       "isFeatured": true,
       "image": "assets/images/solution_harvest.jpg",
-      "description": "Πλήρης εξοπλισμός συλλογής ελαιοκάρπου, ελαιοραβδιστικά τελευταίας τεχνολογίας, ελαιόπανα και δίχτυα υψηλής αντοχής."
+      "description": "Πλήρης εξοπλισμός συλλογής ελαιοκάρπου, ελαιοραβδιστικά τελευταίας τεχνολογίας, χτένες, παλάμες, κλούβες και ελαιοσυλλογή.",
+      "subcategories": [
+        {
+          "id": "elaioravdistika",
+          "wcId": 16,
+          "name": "Ελαιοραβδιστικά",
+          "slug": "elaioravdistika"
+        },
+        {
+          "id": "xtenes",
+          "wcId": 29,
+          "name": "Χτένες",
+          "slug": "xtenes"
+        },
+        {
+          "id": "palames",
+          "wcId": 28,
+          "name": "Παλάμες",
+          "slug": "palames"
+        },
+        {
+          "id": "klouves",
+          "wcId": 20,
+          "name": "Κλούβες",
+          "slug": "klouves"
+        },
+        {
+          "id": "kouvades",
+          "wcId": 27,
+          "name": "Κουβάδες",
+          "slug": "kouvades"
+        },
+        {
+          "id": "kofinia",
+          "wcId": 26,
+          "name": "Κοφίνια",
+          "slug": "kofinia"
+        },
+        {
+          "id": "tsougranes",
+          "wcId": 30,
+          "name": "Τσουγκράνες",
+          "slug": "tsougranes"
+        },
+        {
+          "id": "koskina",
+          "wcId": 46,
+          "name": "Κόσκινα",
+          "slug": "koskina"
+        }
+      ]
     },
     {
-      "id": "pruning-cutting",
+      "id": "kladema-kai-koph",
+      "wcId": 51,
       "name": "Κλάδεμα & Κοπή",
-      "slug": "pruning-cutting",
-      "count": 42,
+      "slug": "kladema-kai-koph",
+      "count": 7,
       "isFeatured": false,
       "image": "assets/images/prod_shears.jpg",
-      "description": "Επαγγελματικά ψαλίδια κλαδέματος μπαταρίας, αλυσοπρίονα και κονταροπρίονα."
+      "description": "Επαγγελματικά ψαλίδια κλαδέματος μπαταρίας, αλυσοπρίονα μπαταρίας & βενζίνης, τηλεσκοπικά κονταροπρίονα και πριόνια χειρός.",
+      "subcategories": [
+        {
+          "id": "psalidia-mpatarias",
+          "wcId": 25,
+          "name": "Ψαλίδια Μπαταρίας",
+          "slug": "psalidia-mpatarias"
+        },
+        {
+          "id": "alisopriona",
+          "wcId": 39,
+          "name": "Αλυσοπρίονα",
+          "slug": "alisopriona"
+        },
+        {
+          "id": "kontaropriona",
+          "wcId": 42,
+          "name": "Κονταροπρίονα",
+          "slug": "kontaropriona"
+        },
+        {
+          "id": "prionia-xeiros",
+          "wcId": 45,
+          "name": "Πριόνια Χειρός",
+          "slug": "prionia-xeiros"
+        }
+      ]
     },
     {
-      "id": "nets-storage",
+      "id": "dixtia-kai-apothikeysh",
+      "wcId": 49,
       "name": "Δίχτυα & Αποθήκευση",
-      "slug": "nets-storage",
-      "count": 36,
+      "slug": "dixtia-kai-apothikeysh",
+      "count": 2,
       "isFeatured": false,
       "image": "assets/images/prod_net.jpg",
-      "description": "Ενισχυμένα ελαιόπανα 100gr/m², δίχτυα ελαιοσυλλογής και εξαρτήματα."
+      "description": "Ενισχυμένα δίχτυα συγκομιδής 100gr/m², σάκοι γιούτινοι και πλαστικοί, ανοξείδωτα δοχεία λαδιού, αντλίες και τεresource οξύτητας.",
+      "subcategories": [
+        {
+          "id": "dixtia-sigkomidis",
+          "wcId": 22,
+          "name": "Δίχτυα Συγκομιδής",
+          "slug": "dixtia-sigkomidis"
+        },
+        {
+          "id": "sakia",
+          "wcId": 17,
+          "name": "Σακιά",
+          "slug": "sakia"
+        },
+        {
+          "id": "anoxidota-doxeia",
+          "wcId": 21,
+          "name": "Ανοξείδωτα Δοχεία",
+          "slug": "anoxidota-doxeia"
+        },
+        {
+          "id": "antlies-metaforas-ladiou",
+          "wcId": 37,
+          "name": "Αντλίες Μεταφοράς Λαδιού",
+          "slug": "antlies-metaforas-ladiou"
+        },
+        {
+          "id": "denekedes",
+          "wcId": 38,
+          "name": "Τενεκέδες",
+          "slug": "denekedes"
+        },
+        {
+          "id": "kit-oxytitas",
+          "wcId": 44,
+          "name": "Κιτ Οξύτητας",
+          "slug": "kit-oxytitas"
+        }
+      ]
     },
     {
-      "id": "power-batteries",
-      "name": "Μπαταρίες & Ενέργεια",
-      "slug": "power-batteries",
-      "count": 24,
+      "id": "prostasia-kai-endymasia",
+      "wcId": 48,
+      "name": "Προστασία & Ενδυμασία",
+      "slug": "prostasia-kai-endymasia",
+      "count": 2,
+      "isFeatured": false,
+      "image": "assets/images/solution_small.jpg",
+      "description": "Πιστοποιημένος εξοπλισμός ατομικής προστασίας, γάντια αντοχής, γυαλιά UV, γαλότσες, παπούτσια ασφαλείας και αδιάβροχα.",
+      "subcategories": [
+        {
+          "id": "gantia",
+          "wcId": 32,
+          "name": "Γάντια",
+          "slug": "gantia"
+        },
+        {
+          "id": "gyalia-prostasias",
+          "wcId": 33,
+          "name": "Γυαλιά Προστασίας",
+          "slug": "gyalia-prostasias"
+        },
+        {
+          "id": "galotses",
+          "wcId": 34,
+          "name": "Γαλότσες",
+          "slug": "galotses"
+        },
+        {
+          "id": "papoutsia-ergasias",
+          "wcId": 35,
+          "name": "Παπούτσια Εργασίας",
+          "slug": "papoutsia-ergasias"
+        },
+        {
+          "id": "adiadroxa",
+          "wcId": 36,
+          "name": "Αδιάβροχα",
+          "slug": "adiadroxa"
+        }
+      ]
+    },
+    {
+      "id": "epaggelmatika-ergaleia",
+      "wcId": 52,
+      "name": "Επαγγελματικά Εργαλεία",
+      "slug": "epaggelmatika-ergaleia",
+      "count": 4,
       "isFeatured": false,
       "image": "assets/images/prod_generator.jpg",
-      "description": "Φορητές γεννήτριες 12V/24V για ραβδιστικά, μπαταρίες λιθίου και φορτιστές."
+      "description": "Φορητές γεννήτριες 12V/24V για ελαιοραβδιστικά, μπαταρίες λιθίου, σετ συντήρησης και βιοδιασπώμενα λιπαντικά.",
+      "subcategories": [
+        {
+          "id": "gennitries",
+          "wcId": 521,
+          "name": "Γεννήτριες 12V / 24V",
+          "slug": "gennitries"
+        },
+        {
+          "id": "mpataries-fortistes",
+          "wcId": 522,
+          "name": "Μπαταρίες & Φορτιστές",
+          "slug": "mpataries-fortistes"
+        },
+        {
+          "id": "set-episkevis",
+          "wcId": 523,
+          "name": "Σετ Επισκευής & Service",
+          "slug": "set-episkevis"
+        },
+        {
+          "id": "lipantika-spray",
+          "wcId": 524,
+          "name": "Λιπαντικά & Spray",
+          "slug": "lipantika-spray"
+        }
+      ]
     }
   ],
   "categoryMegaMenu": [
     {
-      "id": "olive-harvest",
+      "id": "elaiokomia-kai-sigkomidi",
       "name": "Ελαιοκομία & Συγκομιδή",
       "icon": "olive",
-      "count": 58,
+      "count": 8,
+      "badge": "8 ΚΑΤΗΓΟΡΙΕΣ",
       "subcategories": [
         {
-          "id": "harvesters",
+          "id": "elaioravdistika",
           "name": "Ελαιοραβδιστικά",
-          "hint": "Carbon Brushless & Παλμικά"
+          "hint": "Carbon Brushless & Παλμικά",
+          "catId": "elaiokomia-kai-sigkomidi",
+          "subId": "elaioravdistika"
         },
         {
-          "id": "nets",
-          "name": "Δίχτυα Ελιάς & Ελαιόπανα",
-          "hint": "Ενισχυμένα 100gr"
+          "id": "xtenes",
+          "name": "Χτένες",
+          "hint": "Ανταλλακτικές & Carbon",
+          "catId": "elaiokomia-kai-sigkomidi",
+          "subId": "xtenes"
         },
         {
-          "id": "poles",
-          "name": "Κοντάρια & Εξαρτήματα",
-          "hint": "Τηλεσκοπικά Carbon"
+          "id": "palames",
+          "name": "Παλάμες",
+          "hint": "Κεφαλές & εξαρτήματα",
+          "catId": "elaiokomia-kai-sigkomidi",
+          "subId": "palames"
         },
         {
-          "id": "consumables",
-          "name": "Αναλώσιμα & Λιπαντικά",
-          "hint": "Βιοδιασπώμενα λάδια"
+          "id": "klouves",
+          "name": "Κλούβες",
+          "hint": "Διάτρητες & αποθήκευσης",
+          "catId": "elaiokomia-kai-sigkomidi",
+          "subId": "klouves"
         },
         {
-          "id": "spare-parts",
-          "name": "Ανταλλακτικά & Κεφαλές",
-          "hint": "Ραβδάκια & γρανάζια"
+          "id": "kouvades",
+          "name": "Κουβάδες",
+          "hint": "Ενισχυμένοι ελαιοσυλλογής",
+          "catId": "elaiokomia-kai-sigkomidi",
+          "subId": "kouvades"
         },
         {
-          "id": "harvest-accessories",
-          "name": "Αξεσουάρ Συγκομιδής",
-          "hint": "Τελάρα & σακιά"
+          "id": "kofinia",
+          "name": "Κοφίνια",
+          "hint": "Παραδοσιακά & ανθεκτικά",
+          "catId": "elaiokomia-kai-sigkomidi",
+          "subId": "kofinia"
+        },
+        {
+          "id": "tsougranes",
+          "name": "Τσουγκράνες",
+          "hint": "Συλλογής καρπού χειρός",
+          "catId": "elaiokomia-kai-sigkomidi",
+          "subId": "tsougranes"
+        },
+        {
+          "id": "koskina",
+          "name": "Κόσκινα",
+          "hint": "Καθαρισμού καρπού",
+          "catId": "elaiokomia-kai-sigkomidi",
+          "subId": "koskina"
         }
       ]
     },
     {
-      "id": "pruning-cutting",
+      "id": "kladema-kai-koph",
       "name": "Κλάδεμα & Κοπή",
       "icon": "scissors",
-      "count": 42,
+      "count": 4,
+      "badge": "4 ΚΑΤΗΓΟΡΙΕΣ",
       "subcategories": [
         {
-          "id": "shears",
-          "name": "Ψαλίδια Μπαταρίας 40mm",
-          "hint": "Brushless με 2 μπαταρίες"
+          "id": "psalidia-mpatarias",
+          "name": "Ψαλίδια Μπαταρίας",
+          "hint": "Brushless με 2-3 μπαταρίες",
+          "catId": "kladema-kai-koph",
+          "subId": "psalidia-mpatarias"
         },
         {
-          "id": "chainsaws",
-          "name": "Mini Αλυσοπρίονα Μπαταρίας",
-          "hint": "Ελαφριά κοπής 6'' & 8''"
+          "id": "alisopriona",
+          "name": "Αλυσοπρίονα",
+          "hint": "Μπαταρίας & Βενζίνης",
+          "catId": "kladema-kai-koph",
+          "subId": "alisopriona"
         },
         {
-          "id": "pole-saws",
-          "name": "Τηλεσκοπικά Κονταροπρίονα",
-          "hint": "Για ψηλά κλαδιά"
+          "id": "kontaropriona",
+          "name": "Κονταροπρίονα",
+          "hint": "Τηλεσκοπικά μπαταρίας",
+          "catId": "kladema-kai-koph",
+          "subId": "kontaropriona"
         },
         {
-          "id": "manual-pruning",
-          "name": "Χειροκίνητα Ψαλίδια Felco",
-          "hint": "Ελβετική ακρίβεια"
-        },
-        {
-          "id": "blades-chains",
-          "name": "Λάμες & Αλυσίδες Κοπής",
-          "hint": "Ανταλλακτικά παντός τύπου"
-        },
-        {
-          "id": "lubricants",
-          "name": "Λιπαντικά & Προστατευτικά",
-          "hint": "Σπρέι καθαρισμού"
+          "id": "prionia-xeiros",
+          "name": "Πριόνια Χειρός",
+          "hint": "Ιαπωνικά & πτυσσόμενα",
+          "catId": "kladema-kai-koph",
+          "subId": "prionia-xeiros"
         }
       ]
     },
     {
-      "id": "nets-storage",
+      "id": "dixtia-kai-apothikeysh",
       "name": "Δίχτυα & Αποθήκευση",
       "icon": "grid",
-      "count": 36,
+      "count": 6,
+      "badge": "6 ΚΑΤΗΓΟΡΙΕΣ",
       "subcategories": [
         {
-          "id": "reinforced-nets",
-          "name": "Ενισχυμένα Ελαιόπανα 100gr",
-          "hint": "Μονόκλωνα με ενίσχυση"
+          "id": "dixtia-sigkomidis",
+          "name": "Δίχτυα Συγκομιδής",
+          "hint": "Πράσινα & Μαύρα 100gr/m²",
+          "catId": "dixtia-kai-apothikeysh",
+          "subId": "dixtia-sigkomidis"
         },
         {
-          "id": "monofilament-nets",
-          "name": "Δίχτυα Συλλογής",
-          "hint": "Ανθεκτικά σε κλαδιά"
+          "id": "sakia",
+          "name": "Σακιά",
+          "hint": "Γιούτινα & Πλαστικά",
+          "catId": "dixtia-kai-apothikeysh",
+          "subId": "sakia"
         },
         {
-          "id": "crates-boxes",
-          "name": "Τελάρα & Κλούβες",
-          "hint": "Αεριζόμενα πλαστικά"
+          "id": "anoxidota-doxeia",
+          "name": "Ανοξείδωτα Δοχεία",
+          "hint": "Αποθήκευσης ελαιολάδου",
+          "catId": "dixtia-kai-apothikeysh",
+          "subId": "anoxidota-doxeia"
         },
         {
-          "id": "sacks-bags",
-          "name": "Σάκοι Μεταφοράς",
-          "hint": "Γιούτινα & πλαστικά"
+          "id": "antlies-metaforas-ladiou",
+          "name": "Αντλίες Μεταφοράς Λαδιού",
+          "hint": "Ηλεκτρικές ανοξείδωτες",
+          "catId": "dixtia-kai-apothikeysh",
+          "subId": "antlies-metaforas-ladiou"
         },
         {
-          "id": "straps",
-          "name": "Ιμάντες & Στερέωση",
-          "hint": "Ασφάλεια φόρτωσης"
+          "id": "denekedes",
+          "name": "Τενεκέδες",
+          "hint": "Λευκοσιδηρά δοχεία λαδιού",
+          "catId": "dixtia-kai-apothikeysh",
+          "subId": "denekedes"
         },
         {
-          "id": "tarps",
-          "name": "Μουσαμάδες Προστασίας",
-          "hint": "Αδιάβροχοι βαρέως τύπου"
+          "id": "kit-oxytitas",
+          "name": "Κιτ Οξύτητας",
+          "hint": "Μέτρηση ποιότητας ελαιολάδου",
+          "catId": "dixtia-kai-apothikeysh",
+          "subId": "kit-oxytitas"
         }
       ]
     },
     {
-      "id": "power-batteries",
-      "name": "Μπαταρίες & Ενέργεια",
-      "icon": "battery",
-      "count": 24,
-      "subcategories": [
-        {
-          "id": "generators",
-          "name": "Γεννήτριες 12V / 24V",
-          "hint": "Για ελαιοραβδιστικά"
-        },
-        {
-          "id": "backpack-batteries",
-          "name": "Μπαταρίες Λιθίου Πλάτης",
-          "hint": "Αυτονομία 8-12 ώρες"
-        },
-        {
-          "id": "chargers",
-          "name": "Φορτιστές & Inverters",
-          "hint": "Ταχυφορτιστές πεδίου"
-        },
-        {
-          "id": "cables",
-          "name": "Καλώδια Σύνδεσης",
-          "hint": "Ενισχυμένα καλώδια 15m"
-        },
-        {
-          "id": "deep-cycle",
-          "name": "Μπαταρίες Βαθέως Κύκλου",
-          "hint": "Μακράς διάρκειας"
-        },
-        {
-          "id": "power-stations",
-          "name": "Φορητά Power Stations",
-          "hint": "Αυτόνομη ισχύς στον αγρό"
-        }
-      ]
-    },
-    {
-      "id": "protection-workwear",
+      "id": "prostasia-kai-endymasia",
       "name": "Προστασία & Ενδυμασία",
       "icon": "shield",
-      "count": 28,
+      "count": 5,
+      "badge": "5 ΚΑΤΗΓΟΡΙΕΣ",
       "subcategories": [
         {
-          "id": "work-suits",
-          "name": "Επαγγελματικές Φόρμες",
-          "hint": "Ανθεκτικές με ενίσχυση"
+          "id": "gantia",
+          "name": "Γάντια",
+          "hint": "Εργασίας & κλαδέματος",
+          "catId": "prostasia-kai-endymasia",
+          "subId": "gantia"
         },
         {
-          "id": "gloves",
-          "name": "Γάντια Προστασίας & Κλαδέματος",
-          "hint": "Αντιολισθητικά & δερμάτινα"
+          "id": "gyalia-prostasias",
+          "name": "Γυαλιά Προστασίας",
+          "hint": "Αντιχαρακτικά & UV",
+          "catId": "prostasia-kai-endymasia",
+          "subId": "gyalia-prostasias"
         },
         {
-          "id": "safety-boots",
-          "name": "Μπότες & Υποδήματα",
-          "hint": "Αδιάβροχα ασφαλείας S3"
+          "id": "galotses",
+          "name": "Γαλότσες",
+          "hint": "Αδιάβροχες ενισχυμένες",
+          "catId": "prostasia-kai-endymasia",
+          "subId": "galotses"
         },
         {
-          "id": "eye-face",
-          "name": "Γυαλιά & Ασπίδες",
-          "hint": "Προστασία ματιών & προσώπου"
+          "id": "papoutsia-ergasias",
+          "name": "Παπούτσια Εργασίας",
+          "hint": "Ασφαλείας S3",
+          "catId": "prostasia-kai-endymasia",
+          "subId": "papoutsia-ergasias"
         },
         {
-          "id": "ergonomics",
-          "name": "Επιγονατίδες & Ζώνες Μέσης",
-          "hint": "Εργονομική υποστήριξη"
-        },
-        {
-          "id": "thermal-rain",
-          "name": "Αδιάβροχα & Θερμικά",
-          "hint": "Για χειμερινή συγκομιδή"
+          "id": "adiadroxa",
+          "name": "Αδιάβροχα",
+          "hint": "Σακάκια & παντελόνια",
+          "catId": "prostasia-kai-endymasia",
+          "subId": "adiadroxa"
         }
       ]
     },
     {
-      "id": "pro-tools",
+      "id": "epaggelmatika-ergaleia",
       "name": "Επαγγελματικά Εργαλεία",
       "icon": "wrench",
-      "count": 31,
+      "count": 4,
+      "badge": "4 ΚΑΤΗΓΟΡΙΕΣ",
       "subcategories": [
         {
-          "id": "maintenance-kits",
+          "id": "gennitries",
+          "name": "Γεννήτριες 12V / 24V",
+          "hint": "Για ελαιοραβδιστικά",
+          "catId": "epaggelmatika-ergaleia",
+          "subId": "gennitries"
+        },
+        {
+          "id": "mpataries-fortistes",
+          "name": "Μπαταρίες & Φορτιστές",
+          "hint": "Λιθίου & ταχυφορτιστές",
+          "catId": "epaggelmatika-ergaleia",
+          "subId": "mpataries-fortistes"
+        },
+        {
+          "id": "set-episkevis",
           "name": "Σετ Επισκευής & Service",
-          "hint": "Καστάνιες & ειδικά κλειδιά"
+          "hint": "Ειδικά κλειδιά & ανταλλακτικά",
+          "catId": "epaggelmatika-ergaleia",
+          "subId": "set-episkevis"
         },
         {
-          "id": "cleaners-sprays",
-          "name": "Λιπαντικά & Spray Καθαρισμού",
-          "hint": "Απομάκρυνση ρετσινιού"
-        },
-        {
-          "id": "measuring",
-          "name": "Μετρητικά Όργανα & Υγρασιόμετρα",
-          "hint": "Έλεγχος καρπού & εδάφους"
-        },
-        {
-          "id": "sprayers",
-          "name": "Ψεκαστήρες Προπιέσεως",
-          "hint": "Χειροκίνητοι & πλάτης"
-        },
-        {
-          "id": "sharpeners",
-          "name": "Τροχιστικά Αλυσίδων & Λεπίδων",
-          "hint": "Ηλεκτρικά & χειρός"
-        },
-        {
-          "id": "toolboxes",
-          "name": "Εργαλειοθήκες Συνεργείου",
-          "hint": "Ανθεκτικές μεταφοράς"
+          "id": "lipantika-spray",
+          "name": "Λιπαντικά & Spray",
+          "hint": "Βιοδιασπώμενα λάδια & σπρέι",
+          "catId": "epaggelmatika-ergaleia",
+          "subId": "lipantika-spray"
         }
       ]
     }
@@ -278,32 +471,40 @@ const DPAgronData = {
       "name": "Όλα για την Ελιά"
     },
     {
-      "id": "harvesters",
+      "id": "elaioravdistika",
       "name": "Ελαιοραβδιστικά"
     },
     {
-      "id": "pruning",
-      "name": "Ψαλίδια Κλαδέματος"
+      "id": "psalidia-mpatarias",
+      "name": "Ψαλίδια Μπαταρίας"
     },
     {
-      "id": "nets",
-      "name": "Δίχτυα & Ελαιόπανα"
+      "id": "alisopriona",
+      "name": "Αλυσοπρίονα"
     },
     {
-      "id": "power",
-      "name": "Μπαταρίες & Γεννήτριες"
+      "id": "dixtia-sigkomidis",
+      "name": "Δίχτυα Συγκομιδής"
     },
     {
-      "id": "chainsaws",
-      "name": "Αλυσοπρίονα Κοπής"
+      "id": "sakia",
+      "name": "Σακιά & Αποθήκευση"
     },
     {
-      "id": "protection",
-      "name": "Προστασία & Ενδυμασία"
+      "id": "klouves",
+      "name": "Κλούβες"
     },
     {
-      "id": "consumables",
-      "name": "Αναλώσιμα & Λιπαντικά"
+      "id": "gennitries",
+      "name": "Γεννήτριες 12V/24V"
+    },
+    {
+      "id": "gantia",
+      "name": "Γάντια & Προστασία"
+    },
+    {
+      "id": "anoxidota-doxeia",
+      "name": "Ανοξείδωτα Δοχεία"
     }
   ],
   "hotSearches": [
@@ -376,8 +577,8 @@ const DPAgronData = {
       "wcId": 13,
       "title": "Ελαιοραβδιστικό Μπαταρίας Χτένα 750W με Επεκτάσιμο Κοντάρι 3.4m και Βάρος 2.3kg Geotec GTOB-1200",
       "slug": "%ce%b5%ce%bb%ce%b1%ce%b9%ce%bf%cf%81%ce%b1%ce%b2%ce%b4%ce%b9%cf%83%cf%84%ce%b9%ce%ba%cf%8c-%ce%bc%cf%80%ce%b1%cf%84%ce%b1%cf%81%ce%af%ce%b1%cf%82-%cf%87%cf%84%ce%ad%ce%bd%ce%b1-750w-%ce%bc%ce%b5",
-      "category": "olive-harvest",
-      "subcategory": "harvesters",
+      "category": "elaiokomia-kai-sigkomidi",
+      "subcategory": "elaioravdistika",
       "brand": "Geotec",
       "sku": "DP-WC-13",
       "price": 258,
@@ -437,8 +638,8 @@ const DPAgronData = {
     {
       "id": "prod-vortex-pro",
       "title": "Επαγγελματικό Ελαιοραβδιστικό Carbon Brushless 12V-48V",
-      "category": "olive-harvest",
-      "subcategory": "harvesters",
+      "category": "elaiokomia-kai-sigkomidi",
+      "subcategory": "elaioravdistika",
       "brand": "CAMPAGNOLA",
       "sku": "DP-VX-4800",
       "price": 489,
@@ -548,8 +749,8 @@ const DPAgronData = {
     {
       "id": "prod-pruning-shear-40",
       "title": "Ηλεκτρικό Ψαλίδι Κλαδέματος Μπαταρίας 40mm Brushless",
-      "category": "pruning-cutting",
-      "subcategory": "pruning",
+      "category": "kladema-kai-koph",
+      "subcategory": "psalidia-mpatarias",
       "brand": "VOLPI",
       "sku": "DP-MC-400B",
       "price": 289,
@@ -624,8 +825,8 @@ const DPAgronData = {
     {
       "id": "prod-olive-net-812",
       "title": "Ενισχυμένο Ελαιόπανο Συγκομιδής 8x12m Βαρέως Τύπου 100gr/m²",
-      "category": "nets-storage",
-      "subcategory": "nets",
+      "category": "dixtia-kai-apothikeysh",
+      "subcategory": "dixtia-sigkomidis",
       "brand": "DP AGRON",
       "sku": "DP-NET-812",
       "price": 54,
@@ -696,8 +897,8 @@ const DPAgronData = {
     {
       "id": "prod-generator-olive-12v",
       "title": "Γεννήτρια Ελαιοραβδιστικών 12V-24V DP-Power Dyna 7.0HP",
-      "category": "power-batteries",
-      "subcategory": "power",
+      "category": "epaggelmatika-ergaleia",
+      "subcategory": "gennitries",
       "brand": "ZANON",
       "sku": "DP-GEN-7000",
       "price": 580,
@@ -750,8 +951,8 @@ const DPAgronData = {
     {
       "id": "prod-mini-chainsaw-8",
       "title": "Mini Αλυσοπρίονο Κλαδέματος Μπαταρίας 8 ιντσών Brushless",
-      "category": "pruning-cutting",
-      "subcategory": "chainsaws",
+      "category": "kladema-kai-koph",
+      "subcategory": "alisopriona",
       "brand": "MAKITA",
       "sku": "DP-CS-800B",
       "price": 169,
@@ -792,8 +993,8 @@ const DPAgronData = {
     {
       "id": "prod-harvester-hedgehog",
       "title": "Ελαιοραβδιστικό Αχινός Παλμικό DP-Spike Pro 12V",
-      "category": "olive-harvest",
-      "subcategory": "harvesters",
+      "category": "elaiokomia-kai-sigkomidi",
+      "subcategory": "elaioravdistika",
       "brand": "LISAM",
       "sku": "DP-SP-120T",
       "price": 369,
@@ -834,8 +1035,8 @@ const DPAgronData = {
     {
       "id": "prod-safety-suit",
       "title": "Στολή Εργασίας & Ελαιοσυλλογής DP-Armour",
-      "category": "protection",
-      "subcategory": "protection",
+      "category": "prostasia-kai-endymasia",
+      "subcategory": "adiadroxa",
       "brand": "DP AGRON",
       "sku": "DP-SEC-SUIT",
       "price": 68,
@@ -878,8 +1079,8 @@ const DPAgronData = {
     {
       "id": "prod-bio-chain-oil",
       "title": "Βιοδιασπώμενο Λάδι Αλυσίδας & Εργαλείων 5L",
-      "category": "consumables",
-      "subcategory": "consumables",
+      "category": "epaggelmatika-ergaleia",
+      "subcategory": "lipantika-spray",
       "brand": "DP AGRON",
       "sku": "DP-OIL-BIO5",
       "price": 26.5,
@@ -919,8 +1120,8 @@ const DPAgronData = {
     {
       "id": "prod-stihl-sp92",
       "title": "Επαγγελματικό Βενζινοκίνητο Ελαιοραβδιστικό SP 92 TC-E 2-MIX",
-      "category": "olive-harvest",
-      "subcategory": "harvesters",
+      "category": "elaiokomia-kai-sigkomidi",
+      "subcategory": "elaioravdistika",
       "brand": "STIHL",
       "sku": "ST-SP92-TCE",
       "price": 849,
@@ -960,8 +1161,8 @@ const DPAgronData = {
     {
       "id": "prod-felco-822",
       "title": "Ηλεκτρικό Ψαλίδι Κλαδέματος 45mm FELCO 822 HP Power Blade",
-      "category": "pruning-cutting",
-      "subcategory": "pruning",
+      "category": "kladema-kai-koph",
+      "subcategory": "psalidia-mpatarias",
       "brand": "FELCO",
       "sku": "FL-822-HP",
       "price": 1390,
@@ -1001,8 +1202,8 @@ const DPAgronData = {
     {
       "id": "prod-pellenc-power-ulib",
       "title": "Επαγγελματική Μπαταρία Πλάτης ULiB 1500 Multi-Device",
-      "category": "power-batteries",
-      "subcategory": "power",
+      "category": "epaggelmatika-ergaleia",
+      "subcategory": "mpataries-fortistes",
       "brand": "PELLENC",
       "sku": "PL-ULIB-1500",
       "price": 1280,
@@ -1041,8 +1242,8 @@ const DPAgronData = {
     {
       "id": "prod-stihl-ms170",
       "title": "Βενζινοκίνητο Αλυσοπρίονο MS 170 30.1cm³ με Λάμα 35cm",
-      "category": "pruning-cutting",
-      "subcategory": "chainsaws",
+      "category": "kladema-kai-koph",
+      "subcategory": "alisopriona",
       "brand": "STIHL",
       "sku": "ST-MS170-35",
       "price": 219,
@@ -1082,8 +1283,8 @@ const DPAgronData = {
     {
       "id": "prod-zanon-karbonium",
       "title": "Ηλεκτρικό Ελαιοραβδιστικό Carbon Karbonium EVO 33V",
-      "category": "olive-harvest",
-      "subcategory": "harvesters",
+      "category": "elaiokomia-kai-sigkomidi",
+      "subcategory": "elaioravdistika",
       "brand": "ZANON",
       "sku": "ZN-KARB-EVO",
       "price": 549,
@@ -1123,8 +1324,8 @@ const DPAgronData = {
     {
       "id": "prod-pellenc-c35",
       "title": "Ψαλίδι Κλαδέματος Μπαταρίας C35 με Σύστημα Activ'Security",
-      "category": "pruning-cutting",
-      "subcategory": "pruning",
+      "category": "kladema-kai-koph",
+      "subcategory": "psalidia-mpatarias",
       "brand": "PELLENC",
       "sku": "PL-C35-SEC",
       "price": 980,
@@ -1164,8 +1365,8 @@ const DPAgronData = {
     {
       "id": "prod-lisam-tipper",
       "title": "Πνευματικό Ψαλίδι Κλαδέματος Αέρος LISAM Sly Super Light",
-      "category": "pruning-cutting",
-      "subcategory": "pruning",
+      "category": "kladema-kai-koph",
+      "subcategory": "psalidia-mpatarias",
       "brand": "LISAM",
       "sku": "LS-SLY-AIR",
       "price": 145,
@@ -1204,8 +1405,8 @@ const DPAgronData = {
     {
       "id": "prod-olive-net-610",
       "title": "Δίχτυ Ελαιοσυλλογής Monofilament 6x10m 100gr/m²",
-      "category": "nets-storage",
-      "subcategory": "nets",
+      "category": "dixtia-kai-apothikeysh",
+      "subcategory": "dixtia-sigkomidis",
       "brand": "DP AGRON",
       "sku": "DP-NET-610",
       "price": 42,
@@ -1244,8 +1445,8 @@ const DPAgronData = {
     {
       "id": "prod-volpi-kamikaze",
       "title": "Επαναφορτιζόμενο Mini Αλυσοπρίονο KVS5000 14.4V",
-      "category": "pruning-cutting",
-      "subcategory": "chainsaws",
+      "category": "kladema-kai-koph",
+      "subcategory": "alisopriona",
       "brand": "VOLPI",
       "sku": "VP-KVS-5000",
       "price": 235,
@@ -1284,8 +1485,8 @@ const DPAgronData = {
     {
       "id": "prod-makita-battery-set",
       "title": "Σετ Διπλής Μπαταρίας 18V LXT 5.0Ah & Ταχυφορτιστής DC18RD",
-      "category": "power-batteries",
-      "subcategory": "power",
+      "category": "epaggelmatika-ergaleia",
+      "subcategory": "mpataries-fortistes",
       "brand": "MAKITA",
       "sku": "MK-PWR-2X5",
       "price": 179,
@@ -1325,8 +1526,8 @@ const DPAgronData = {
     {
       "id": "prod-stihl-advance-gloves",
       "title": "Επαγγελματικά Γάντια Κλαδέματος & Συγκομιδής Advance Ergo Grip",
-      "category": "protection",
-      "subcategory": "protection",
+      "category": "prostasia-kai-endymasia",
+      "subcategory": "gantia",
       "brand": "STIHL",
       "sku": "ST-GLV-ADV",
       "price": 28.5,
@@ -1367,8 +1568,8 @@ const DPAgronData = {
     {
       "id": "prod-campagnola-alice",
       "title": "Ηλεκτρικό Ελαιοραβδιστικό ALICE Premium Carbon 12V 58V",
-      "category": "olive-harvest",
-      "subcategory": "harvesters",
+      "category": "elaiokomia-kai-sigkomidi",
+      "subcategory": "elaioravdistika",
       "brand": "CAMPAGNOLA",
       "sku": "CP-ALICE-58",
       "price": 620,

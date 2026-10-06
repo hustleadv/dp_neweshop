@@ -101,29 +101,92 @@ async function sync() {
 
   // Build categoryMegaMenu
   const categoryIcons = {
-    'elaioravdistika': 'olive',
-    'alisopriona': 'scissors',
-    'kontaropriona': 'scissors',
-    'psalidi-mpatarias': 'scissors',
-    'prionia-xeiros': 'scissors',
-    'dixtia': 'grid',
-    'sakia': 'grid',
-    'klouves': 'grid',
-    'axesouar': 'shield',
-    'anoxidota': 'wrench',
-    'antlies-metaforas-ladiou': 'wrench'
+    'elaiokomia-kai-sigkomidi': 'olive',
+    'kladema-kai-koph': 'scissors',
+    'dixtia-kai-apothikeysh': 'grid',
+    'prostasia-kai-endymasia': 'shield',
+    'epaggelmatika-ergaleia': 'wrench'
+  };
+
+  const cleanNames = {
+    'elaioravdistika': 'Ελαιοραβδιστικά',
+    'xtenes': 'Χτένες',
+    'palames': 'Παλάμες',
+    'klouves': 'Κλούβες',
+    'kouvades': 'Κουβάδες',
+    'kofinia': 'Κοφίνια',
+    'tsougranes': 'Τσουγκράνες',
+    'koskina': 'Κόσκινα',
+    'psalidia-mpatarias': 'Ψαλίδια Μπαταρίας',
+    'alisopriona': 'Αλυσοπρίονα',
+    'kontaropriona': 'Κονταροπρίονα',
+    'prionia-xeiros': 'Πριόνια Χειρός',
+    'dixtia-sigkomidis': 'Δίχτυα Συγκομιδής',
+    'sakia': 'Σακιά',
+    'anoxidota-doxeia': 'Ανοξείδωτα Δοχεία',
+    'antlies-metaforas-ladiou': 'Αντλίες Μεταφοράς Λαδιού',
+    'denekedes': 'Τενεκέδες',
+    'kit-oxytitas': 'Κιτ Οξύτητας',
+    'gantia': 'Γάντια',
+    'gyalia-prostasias': 'Γυαλιά Προστασίας',
+    'galotses': 'Γαλότσες',
+    'papoutsia-ergasias': 'Παπούτσια Εργασίας',
+    'adiadroxa': 'Αδιάβροχα'
+  };
+
+  const subcatHints = {
+    'elaioravdistika': 'Carbon Brushless & Παλμικά',
+    'xtenes': 'Ανταλλακτικές & Carbon',
+    'palames': 'Κεφαλές & εξαρτήματα',
+    'klouves': 'Διάτρητες & αποθήκευσης',
+    'kouvades': 'Ενισχυμένοι ελαιοσυλλογής',
+    'kofinia': 'Παραδοσιακά & ανθεκτικά',
+    'tsougranes': 'Συλλογής καρπού χειρός',
+    'koskina': 'Καθαρισμού καρπού',
+    'psalidia-mpatarias': 'Brushless με 2-3 μπαταρίες',
+    'alisopriona': 'Μπαταρίας & Βενζίνης',
+    'kontaropriona': 'Τηλεσκοπικά μπαταρίας',
+    'prionia-xeiros': 'Ιαπωνικά & πτυσσόμενα',
+    'dixtia-sigkomidis': 'Πράσινα & Μαύρα 100gr/m²',
+    'sakia': 'Γιούτινα & Πλαστικά',
+    'anoxidota-doxeia': 'Αποθήκευσης ελαιολάδου',
+    'antlies-metaforas-ladiou': 'Ηλεκτρικές ανοξείδωτες',
+    'denekedes': 'Λευκοσιδηρά δοχεία λαδιού',
+    'kit-oxytitas': 'Μέτρηση ποιότητας ελαιολάδου',
+    'gantia': 'Εργασίας & κλαδέματος',
+    'gyalia-prostasias': 'Αντιχαρακτικά & UV',
+    'galotses': 'Αδιάβροχες ενισχυμένες',
+    'papoutsia-ergasias': 'Ασφαλείας S3',
+    'adiadroxa': 'Σακάκια & παντελόνια',
+    'gennitries': 'Για ελαιοραβδιστικά 12V/24V',
+    'mpataries-fortistes': 'Λιθίου & ταχυφορτιστές',
+    'set-episkevis': 'Ειδικά κλειδιά & ανταλλακτικά',
+    'lipantika-spray': 'Βιοδιασπώμενα λάδια & σπρέι'
   };
 
   const megaMenu = rootCategories.map(rc => {
-    const subs = childCategories.filter(cc => cc.parent === rc.id);
+    let subs = childCategories.filter(cc => cc.parent === rc.id);
+    if (rc.slug === 'epaggelmatika-ergaleia' && subs.length === 0) {
+      subs = [
+        { slug: 'gennitries', name: 'Γεννήτριες 12V / 24V' },
+        { slug: 'mpataries-fortistes', name: 'Μπαταρίες & Φορτιστές' },
+        { slug: 'set-episkevis', name: 'Σετ Επισκευής & Service' },
+        { slug: 'lipantika-spray', name: 'Λιπαντικά & Spray' }
+      ];
+    }
     return {
       id: rc.slug,
       name: rc.name,
       icon: categoryIcons[rc.slug] || 'wrench',
       count: rc.count,
-      subcategories: subs.length > 0
-        ? subs.map(s => ({ id: s.slug, name: s.name, hint: `${s.name} DP Agron` }))
-        : [{ id: rc.slug, name: rc.name, hint: 'Δείτε όλα τα προϊόντα' }]
+      badge: `${subs.length} ΚΑΤΗΓΟΡΙΕΣ`,
+      subcategories: subs.map(s => ({
+        id: s.slug,
+        name: cleanNames[s.slug] || s.name,
+        hint: subcatHints[s.slug] || `${s.name} DP Agron`,
+        catId: rc.slug,
+        subId: s.slug
+      }))
     };
   });
 

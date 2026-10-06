@@ -461,7 +461,7 @@ const App = {
 
       <div class="category-megamenu-subcat-grid">
         ${activeCat.subcategories.map(sub => `
-          <div class="category-megamenu-subcat-item" onclick="App.filterFromMegaMenu('${sub.catId || sub.id}', '${sub.subId || ''}', '${sub.name}')">
+          <div class="category-megamenu-subcat-item" onclick="App.filterFromMegaMenu('${sub.catId || activeCat.id}', '${sub.subId || sub.id}', '${sub.name}')">
             <span class="category-megamenu-subcat-name">
               <span>${sub.name}</span>
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
@@ -472,7 +472,7 @@ const App = {
       </div>
 
       <div class="category-megamenu-footer">
-        <a class="category-megamenu-all-link" onclick="App.filterFromMegaMenu('all', '', '${activeCat.name}')">
+        <a class="category-megamenu-all-link" onclick="App.filterFromMegaMenu('${activeCat.id}', 'all', '${activeCat.name}')">
           <span>Προβολή όλων στο Κατάστημα</span>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
         </a>
@@ -930,11 +930,12 @@ const App = {
     // Active filters calculation
     const tags = [];
     if (Store.filters.category !== "all") {
-      const cat = DPAgronData.categories.find(c => c.id === Store.filters.category);
+      const cat = (DPAgronData.categories || []).find(c => c.id === Store.filters.category || c.slug === Store.filters.category);
       if (cat) tags.push({ label: `Κατηγορία: ${cat.name}`, key: "category" });
     }
     if (Store.filters.subcategory !== "all") {
-      const sub = DPAgronData.oliveSubcategories.find(s => s.id === Store.filters.subcategory);
+      const sub = (DPAgronData.oliveSubcategories || []).find(s => s.id === Store.filters.subcategory)
+        || (DPAgronData.categories || []).flatMap(c => c.subcategories || []).find(s => s.id === Store.filters.subcategory || s.slug === Store.filters.subcategory);
       if (sub) tags.push({ label: `Υποκατηγορία: ${sub.name}`, key: "subcategory" });
     }
     Store.filters.brands.forEach(b => {
@@ -1136,6 +1137,7 @@ const App = {
 
   filterShopByCategory(catId) {
     Store.filters.category = catId;
+    Store.filters.subcategory = "all";
     this.navigateTo("shop");
     this.renderShopPage();
   },
@@ -1206,10 +1208,11 @@ const App = {
     const stroke = 'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"';
     const icons = {
       "all": `<svg width="15" height="15" viewBox="0 0 24 24" ${stroke}><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect></svg>`,
-      "olive-harvest": `<svg width="15" height="15" viewBox="0 0 24 24" ${stroke}><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg>`,
-      "pruning-cutting": `<svg width="15" height="15" viewBox="0 0 24 24" ${stroke}><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" y1="4" x2="8.12" y2="15.88"></line><line x1="14.47" y1="14.48" x2="20" y2="20"></line><line x1="8.12" y1="8.12" x2="12" y2="12"></line></svg>`,
-      "nets-storage": `<svg width="15" height="15" viewBox="0 0 24 24" ${stroke}><path d="M4 9h16M4 15h16M9 4v16M15 4v16"></path></svg>`,
-      "power-batteries": `<svg width="15" height="15" viewBox="0 0 24 24" ${stroke}><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>`
+      "elaiokomia-kai-sigkomidi": `<svg width="15" height="15" viewBox="0 0 24 24" ${stroke}><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg>`,
+      "kladema-kai-koph": `<svg width="15" height="15" viewBox="0 0 24 24" ${stroke}><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" y1="4" x2="8.12" y2="15.88"></line><line x1="14.47" y1="14.48" x2="20" y2="20"></line><line x1="8.12" y1="8.12" x2="12" y2="12"></line></svg>`,
+      "dixtia-kai-apothikeysh": `<svg width="15" height="15" viewBox="0 0 24 24" ${stroke}><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M3 9h18"></path><path d="M3 15h18"></path><path d="M9 3v18"></path><path d="M15 3v18"></path></svg>`,
+      "prostasia-kai-endymasia": `<svg width="15" height="15" viewBox="0 0 24 24" ${stroke}><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>`,
+      "epaggelmatika-ergaleia": `<svg width="15" height="15" viewBox="0 0 24 24" ${stroke}><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>`
     };
 
     const products = DPAgronData.products || [];
