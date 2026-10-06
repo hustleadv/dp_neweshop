@@ -1964,34 +1964,55 @@ const AIAssistant = {
     const vatEx = p.vatExcludedPrice ? (p.vatExcludedPrice * qty) : ((p.price * qty) / 1.24);
     const totalPrice = p.price * qty;
     
-    const qtyBadge = qty > 1 ? `<span class="ai-qty-badge" style="position:absolute; top:8px; right:8px; background:linear-gradient(135deg, var(--gold-200) 0%, var(--gold-400) 100%); color:var(--ink-950); font-weight:800; padding:3px 9px; border-radius:20px; font-size:0.75rem; z-index:4; box-shadow:0 4px 12px rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.4);">${qty}x Τεμάχια</span>` : '';
+    const qtyBadge = qty > 1 
+      ? `<span class="ai-qty-badge">${qty}x Τεμάχια</span>` 
+      : (p.originalPrice && p.originalPrice > p.price 
+          ? `<span class="ai-discount-badge">-${Math.round((1 - p.price / p.originalPrice) * 100)}%</span>` 
+          : '');
 
     return `
-      <div class="ai-card-item" style="position:relative;">
+      <div class="ai-card-item">
         ${qtyBadge}
-        <div class="ai-card-media" onclick="App.navigateTo('product', '${p.id}')" title="Προβολή λεπτομερειών">
+        <div class="ai-card-media" onclick="App.navigateTo('product', '${p.id}')" title="Προβολή λεπτομερειών: ${p.title}">
           <img src="${imgUrl}" alt="${p.title}" loading="lazy">
+          <div class="ai-card-media-gradient"></div>
           <span class="ai-card-badge">${p.brand}</span>
-          ${p.inStock ? '<span class="ai-stock-badge">✓ Διαθέσιμο</span>' : ''}
+          ${p.inStock 
+            ? '<span class="ai-stock-badge"><span class="ai-stock-dot"></span>Άμεσα Διαθέσιμο</span>' 
+            : '<span class="ai-stock-badge out">Κατόπιν παραγγελίας</span>'}
+          <button type="button" class="ai-media-quickview-btn" onclick="event.stopPropagation(); App.openQuickView('${p.id}')" title="Γρήγορη Προβολή">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+            <span>Προβολή</span>
+          </button>
         </div>
         <div class="ai-card-body">
-          <div class="ai-card-cat">${p.brand} &bull; ${p.usageLevel || 'Επαγγελματική'}</div>
+          <div class="ai-card-cat">
+            <span class="ai-cat-brand">${p.brand}</span>
+            <span class="ai-cat-dot">&bull;</span>
+            <span class="ai-cat-level">${p.usageLevel || 'Επαγγελματική'}</span>
+          </div>
           <h4 class="ai-card-title" onclick="App.navigateTo('product', '${p.id}')" title="${p.title}">${p.title}</h4>
           <div class="ai-card-benefit">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
             <span>${keyAdvantage}</span>
           </div>
           <div class="ai-card-pricing">
-            <div class="ai-card-price-main">${totalPrice.toFixed(2)} €</div>
-            <div class="ai-card-price-vat">Χωρίς ΦΠΑ (39α): <strong>${vatEx.toFixed(2)} €</strong></div>
+            <div class="ai-card-price-row">
+              <span class="ai-card-price-main">${totalPrice.toFixed(2)} €</span>
+              ${p.originalPrice && p.originalPrice > p.price ? `<span class="ai-card-price-orig">${(p.originalPrice * qty).toFixed(2)} €</span>` : ''}
+            </div>
+            <div class="ai-card-price-vat">
+              <span class="ai-vat-badge">Χωρίς ΦΠΑ (39α)</span>
+              <strong>${vatEx.toFixed(2)} €</strong>
+            </div>
           </div>
           <div class="ai-card-actions">
             <button type="button" class="ai-btn-add" onclick="Store.addToCart('${p.id}', ${qty}); App.showToast('${qty > 1 ? qty + "x " : ""}Το ${this.escapeJS(p.title)} προστέθηκε στο καλάθι!');">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
               <span>+ ${qty > 1 ? qty + ' Στο Καλάθι' : 'Στο Καλάθι'}</span>
             </button>
-            <button type="button" class="ai-btn-view" title="Προβολή Λεπτομερειών" onclick="App.navigateTo('product', '${p.id}')">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+            <button type="button" class="ai-btn-view" title="Αναλυτικά Χαρακτηριστικά" onclick="App.navigateTo('product', '${p.id}')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </button>
           </div>
         </div>
