@@ -103,15 +103,12 @@
   text-shadow: 0 4px 24px rgb(var(--ink-950-rgb) / 0.45);
 }
 
-/* Gradient text — NO translateZ / will-change (they cause GPU compositing lag on resize) */
-/* Warm sunrise-gold accent, taken from the glow in the hero photo */
+/* Pure editorial white title — clean, authoritative, luxury aesthetic */
 .ai-hero-title span {
   display: inline;
-  background: linear-gradient(120deg, var(--gold-100) 0%, var(--gold-400) 55%, var(--gold-500) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: none;
+  color: var(--white);
+  -webkit-text-fill-color: var(--white);
+  text-shadow: 0 4px 24px rgb(var(--ink-950-rgb) / 0.45);
 }
 
 .ai-hero-subtitle {
